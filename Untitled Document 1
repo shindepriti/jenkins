@@ -1,0 +1,369 @@
+ sudo su jenkins
+jenkins@ip-172-31-41-156:/home/ubuntu$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/var/lib/jenkins/.ssh/id_rsa): 
+Created directory '/var/lib/jenkins/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /var/lib/jenkins/.ssh/id_rsa.
+Your public key has been saved in /var/lib/jenkins/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:Nkz95T5c+WvOvDghrUnw5LACTEJzmvXKyMxw4aqFaok jenkins@ip-172-31-41-156
+The key's randomart image is:
++---[RSA 2048]----+
+|  .+ o           |
+|  ..B..  .       |
+| . =+  .. .   .  |
+| .B oo.o o o o  .|
+|...= o. S B o ...|
+|+..    o o = = ..|
+|Eo      . . + = .|
+|.          o .+o.|
+|             .+*.|
++----[SHA256]-----+
+jenkins@ip-172-31-41-156:/home/ubuntu$ cd .ssh
+bash: cd: .ssh: Permission denied
+jenkins@ip-172-31-41-156:/home/ubuntu$ ls
+jenkins@ip-172-31-41-156:/home/ubuntu$ exit
+exit
+ubuntu@ip-172-31-41-156:~$ ls
+ubuntu@ip-172-31-41-156:~$ cd .ssh
+ubuntu@ip-172-31-41-156:~/.ssh$ ls
+authorized_keys
+ubuntu@ip-172-31-41-156:~/.ssh$ cd authorized_keys
+-bash: cd: authorized_keys: Not a directory
+ubuntu@ip-172-31-41-156:~/.ssh$ cd /root/.ssh/id_rsa
+-bash: cd: /root/.ssh/id_rsa: Permission denied
+ubuntu@ip-172-31-41-156:~/.ssh$ exit
+logout
+Connection to ec2-3-17-36-1.us-east-2.compute.amazonaws.com closed.
+administrator123@administrator123-LIVA-Z2V:~/Downloads/deployment$ 
+
+
+-==============================================
+
+
+ubuntu@ip-172-31-41-156:~$  sudo su jenkins
+jenkins@ip-172-31-41-156:/home/ubuntu$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/var/lib/jenkins/.ssh/id_rsa): 
+/var/lib/jenkins/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /var/lib/jenkins/.ssh/id_rsa.
+Your public key has been saved in /var/lib/jenkins/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:/aty3GpPK9Xon7COHCCPuECLj/cCslZtm2vJHFU7KCQ jenkins@ip-172-31-41-156
+The key's randomart image is:
++---[RSA 2048]----+
+|                 |
+|   E .   .       |
+|    o   o .      |
+|     . o +       |
+|  . . + S o  o   |
+|oo o = + . .o .  |
+|oo+ = * ...++    |
+|.+o. O  ..=+o= . |
+|o..o+..  +=**.o  |
++----[SHA256]-----+
+jenkins@ip-172-31-41-156:/home/ubuntu$ cd .ssh
+bash: cd: .ssh: Permission denied
+jenkins@ip-172-31-41-156:/home/ubuntu$ ls
+jenkins@ip-172-31-41-156:/home/ubuntu$ cd .ssh
+bash: cd: .ssh: Permission denied
+jenkins@ip-172-31-41-156:/home/ubuntu$ ll
+ll: command not found
+jenkins@ip-172-31-41-156:/home/ubuntu$ ls -lart
+total 36
+-rw-r--r-- 1 ubuntu ubuntu  807 Apr  4  2018 .profile
+-rw-r--r-- 1 ubuntu ubuntu 3771 Apr  4  2018 .bashrc
+-rw-r--r-- 1 ubuntu ubuntu  220 Apr  4  2018 .bash_logout
+drwxr-xr-x 3 root   root   4096 May  7 08:39 ..
+drwx------ 2 ubuntu ubuntu 4096 May  7 08:39 .ssh
+drwx------ 3 ubuntu ubuntu 4096 May  7 08:41 .gnupg
+drwx------ 2 ubuntu ubuntu 4096 May  7 08:41 .cache
+-rw-r--r-- 1 ubuntu ubuntu    0 May  7 08:42 .sudo_as_admin_successful
+drwxr-xr-x 5 ubuntu ubuntu 4096 May  7 11:01 .
+-rw------- 1 ubuntu ubuntu  845 May  9 13:51 .bash_history
+jenkins@ip-172-31-41-156:/home/ubuntu$ cd .ssh/
+bash: cd: .ssh/: Permission denied
+jenkins@ip-172-31-41-156:/home/ubuntu$ chmod 764
+chmod: missing operand after ‘764’
+Try 'chmod --help' for more information.
+jenkins@ip-172-31-41-156:/home/ubuntu$ sudo chmod 764
+[sudo] password for jenkins: 
+jenkins@ip-172-31-41-156:/home/ubuntu$ ls -lart
+total 36
+-rw-r--r-- 1 ubuntu ubuntu  807 Apr  4  2018 .profile
+-rw-r--r-- 1 ubuntu ubuntu 3771 Apr  4  2018 .bashrc
+-rw-r--r-- 1 ubuntu ubuntu  220 Apr  4  2018 .bash_logout
+drwxr-xr-x 3 root   root   4096 May  7 08:39 ..
+drwx------ 2 ubuntu ubuntu 4096 May  7 08:39 .ssh
+drwx------ 3 ubuntu ubuntu 4096 May  7 08:41 .gnupg
+drwx------ 2 ubuntu ubuntu 4096 May  7 08:41 .cache
+-rw-r--r-- 1 ubuntu ubuntu    0 May  7 08:42 .sudo_as_admin_successful
+drwxr-xr-x 5 ubuntu ubuntu 4096 May  7 11:01 .
+-rw------- 1 ubuntu ubuntu  845 May  9 13:51 .bash_history
+jenkins@ip-172-31-41-156:/home/ubuntu$ cd /var/lib/jenkins/
+jenkins@ip-172-31-41-156:~$ ls -lart
+total 184
+drwxr-xr-x 36 root    root     4096 May  7 08:46 ..
+drwx------  3 jenkins jenkins  4096 May  7 08:46 .gnupg
+drwxr-xr-x  3 jenkins jenkins  4096 May  7 08:46 .java
+-rw-r--r--  1 jenkins jenkins    64 May  7 08:46 secret.key
+-rw-r--r--  1 jenkins jenkins     0 May  7 08:46 secret.key.not-so-secret
+-rw-------  1 jenkins jenkins  1712 May  7 08:46 identity.key.enc
+-rw-r--r--  1 jenkins jenkins   171 May  7 08:46 jenkins.telemetry.Correlator.xml
+drwxr-xr-x  2 jenkins jenkins  4096 May  7 08:46 nodes
+drwxr-xr-x  2 jenkins jenkins  4096 May  7 08:46 userContent
+-rw-r--r--  1 jenkins jenkins    94 May  7 08:46 jenkins.CLI.xml
+drwxr-xr-x  2 jenkins jenkins  4096 May  7 08:50 workflow-libs
+drwxr-xr-x  3 jenkins jenkins  4096 May  7 08:50 .groovy
+-rw-r--r--  1 jenkins jenkins   182 May  7 08:51 jenkins.model.JenkinsLocationConfiguration.xml
+-rw-r--r--  1 jenkins jenkins     7 May  7 08:51 jenkins.install.UpgradeWizard.state
+-rw-r--r--  1 jenkins jenkins     7 May  7 08:51 jenkins.install.InstallUtil.lastExecVersion
+drwxr-xr-x 79 jenkins jenkins 12288 May  7 10:14 plugins
+drwxr-xr-x  3 jenkins jenkins  4096 May  7 11:14 logs
+drwxr-xr-x  4 jenkins jenkins  4096 May  7 11:14 users
+drwx------  4 jenkins jenkins  4096 May  7 12:07 secrets
+-rw-r--r--  1 jenkins jenkins   272 May  7 12:07 hudson.tools.JDKInstaller.xml
+drwxr-xr-x  4 jenkins jenkins  4096 May  7 12:07 tools
+-rw-r--r--  1 jenkins jenkins   247 May  8 13:50 jenkins.mvn.GlobalMavenConfig.xml
+-rw-r--r--  1 jenkins jenkins   370 May  8 13:50 hudson.plugins.git.GitTool.xml
+-rw-r--r--  1 jenkins jenkins   255 May  8 13:50 org.jenkinsci.plugins.gitclient.JGitApacheTool.xml
+-rw-r--r--  1 jenkins jenkins   243 May  8 13:50 org.jenkinsci.plugins.gitclient.JGitTool.xml
+-rw-r--r--  1 jenkins jenkins   173 May  8 13:50 hudson.plugins.gradle.Gradle.xml
+-rw-r--r--  1 jenkins jenkins   145 May  8 13:50 hudson.tasks.Ant.xml
+-rw-r--r--  1 jenkins jenkins   569 May  8 13:50 hudson.tasks.Maven.xml
+-rw-r--r--  1 jenkins jenkins   299 May  8 13:50 org.jenkinsci.plugins.docker.commons.tools.DockerTool.xml
+drwxr-xr-x  3 jenkins jenkins  4096 May  8 13:50 .jenkins
+drwxr-xr-x  3 jenkins jenkins  4096 May  8 13:50 .m2
+-rw-r--r--  1 jenkins jenkins   130 May  9 08:35 queue.xml.bak
+-rw-r--r--  1 jenkins jenkins   156 May  9 10:44 hudson.model.UpdateCenter.xml
+-rw-r--r--  1 jenkins jenkins   907 May  9 10:44 nodeMonitors.xml
+-rw-r--r--  1 jenkins jenkins  1775 May  9 10:44 config.xml
+-rw-r--r--  1 jenkins jenkins     0 May  9 10:44 .lastStarted
+drwxr-xr-x  2 jenkins jenkins  4096 May  9 10:44 updates
+drwxr-xr-x  4 jenkins jenkins  4096 May  9 12:52 jobs
+-rw-r--r--  1 jenkins jenkins    50 May  9 13:00 .owner
+drwxr-xr-x  4 jenkins jenkins  4096 May  9 13:06 workspace
+-rw-r--r--  1 jenkins jenkins   504 May  9 13:06 org.jenkinsci.plugins.resourcedisposer.AsyncResourceDisposer.xml
+drwxr-xr-x 20 jenkins jenkins  4096 May  9 13:07 fingerprints
+-rw-r--r--  1 jenkins jenkins   130 May  9 13:07 queue.xml
+drwx------  2 jenkins jenkins  4096 May  9 13:20 .ssh
+drwxr-xr-x 20 jenkins jenkins  4096 May  9 13:20 .
+-rw-------  1 jenkins jenkins    99 May  9 13:51 .bash_history
+jenkins@ip-172-31-41-156:~$ cd .ssh/
+jenkins@ip-172-31-41-156:~/.ssh$ ls
+id_rsa	id_rsa.pub
+jenkins@ip-172-31-41-156:~/.ssh$ 
+
+
+
+
+
+
+
+
+
+
+====ByAkash
+
+administrator123@administrator123-LIVA-Z2V:~/Downloads/deployment$ ssh -i "app-key.pem" ubuntu@ec2-18-191-142-181.us-east-2.compute.amazonaws.com
+Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-1035-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri May 10 07:05:05 UTC 2019
+
+  System load:  0.0               Processes:           96
+  Usage of /:   29.6% of 7.69GB   Users logged in:     1
+  Memory usage: 52%               IP address for eth0: 172.31.41.156
+  Swap usage:   0%
+
+ * Ubuntu's Kubernetes 1.14 distributions can bypass Docker and use containerd
+   directly, see https://bit.ly/ubuntu-containerd or try it now with
+
+     snap install microk8s --classic
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+78 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Fri May 10 06:24:25 2019 from 114.79.180.62
+ubuntu@ip-172-31-41-156:~$ 
+ubuntu@ip-172-31-41-156:~$ sudo su jenkins
+jenkins@ip-172-31-41-156:/home/ubuntu$ cd
+jenkins@ip-172-31-41-156:~$ ls
+config.xml
+fingerprints
+hudson.model.UpdateCenter.xml
+hudson.plugins.git.GitTool.xml
+hudson.plugins.gradle.Gradle.xml
+hudson.tasks.Ant.xml
+hudson.tasks.Maven.xml
+hudson.tools.JDKInstaller.xml
+identity.key.enc
+jenkins.CLI.xml
+jenkins.install.InstallUtil.lastExecVersion
+jenkins.install.UpgradeWizard.state
+jenkins.model.JenkinsLocationConfiguration.xml
+jenkins.mvn.GlobalMavenConfig.xml
+jenkins.telemetry.Correlator.xml
+jobs
+logs
+nodeMonitors.xml
+nodes
+org.jenkinsci.plugins.docker.commons.tools.DockerTool.xml
+org.jenkinsci.plugins.gitclient.JGitApacheTool.xml
+org.jenkinsci.plugins.gitclient.JGitTool.xml
+org.jenkinsci.plugins.resourcedisposer.AsyncResourceDisposer.xml
+plugins
+queue.xml.bak
+secret.key
+secret.key.not-so-secret
+secrets
+tools
+updates
+userContent
+users
+workflow-libs
+workspace
+jenkins@ip-172-31-41-156:~$ cd .ssh
+jenkins@ip-172-31-41-156:~/.ssh$ ls
+id_rsa	id_rsa.pub
+jenkins@ip-172-31-41-156:~/.ssh$ cat id_rsa.pub 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3TUo8sGA0WdGPx5z97qVkqBdz1m/tckpyeT/uzdFu8SSSxTXOf0nCdoJNsr5pQCDkVouwlEcaP5XstSMLRlHfWqPf56jqL7f0Vdd4UpWyPqQox2GNovuUbtJgKUxPsN01zw857+uq5A60oEIUaiKqVnNI2G3Ot3klDjv2w3B6i/6mQ84B7wuvkrnnW4E1/jxQIL4b0FvWAU97sTZ8XHA3OvgYVib86YznPmwVMNtQuvW1D41j5ga2PjODiinRYB9IoF55chlAruPnztZSGBl7GLckC0C/w82cBE9faNqV0GLKAJlt9MJ1no0vsGlFlTArLNmdJ09cuKqGqj76Nbl1 jenkins@ip-172-31-41-156
+jenkins@ip-172-31-41-156:~/.ssh$ 
+jenkins@ip-172-31-41-156:~/.ssh$ ssh ubuntu@172.31.47.192
+The authenticity of host '172.31.47.192 (172.31.47.192)' can't be established.
+ECDSA key fingerprint is SHA256:jocSpYSLMv7WP3Ju7z76VB7JkLynHMwnkfj/HvMCt4k.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '172.31.47.192' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-1035-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri May 10 07:06:17 UTC 2019
+
+  System load:  0.0               Processes:           90
+  Usage of /:   25.1% of 7.69GB   Users logged in:     1
+  Memory usage: 26%               IP address for eth0: 172.31.47.192
+  Swap usage:   0%
+
+ * Ubuntu's Kubernetes 1.14 distributions can bypass Docker and use containerd
+   directly, see https://bit.ly/ubuntu-containerd or try it now with
+
+     snap install microk8s --classic
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+78 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Fri May 10 06:39:01 2019 from 114.79.180.62
+ubuntu@ip-172-31-47-192:~$ 
+ubuntu@ip-172-31-47-192:~$ exit
+logout
+Connection to 172.31.47.192 closed.
+jenkins@ip-172-31-41-156:~/.ssh$ 
+
+
+jenkins@ip-172-31-41-156:~/.ssh$ 
+
+
+=========In Jenkin
+
+cat id_rsa.pub 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3TUo8sGA0WdGPx5z97qVkqBdz1m/tckpyeT/uzdFu8SSSxTXOf0nCdoJNsr5pQCDkVouwlEcaP5XstSMLRlHfWqPf56jqL7f0Vdd4UpWyPqQox2GNovuUbtJgKUxPsN01zw857+uq5A60oEIUaiKqVnNI2G3Ot3klDjv2w3B6i/6mQ84B7wuvkrnnW4E1/jxQIL4b0FvWAU97sTZ8XHA3OvgYVib86YznPmwVMNtQuvW1D41j5ga2PjODiinRYB9IoF55chlAruPnztZSGBl7GLckC0C/w82cBE9faNqV0GLKAJlt9MJ1no0vsGlFlTArLNmdJ09cuKqGqj76Nbl1 jenkins@ip-172-31-41-156
+jenkins@ip-172-31-41-156:~/.ssh$ 
+jenkins@ip-172-31-41-156:~/.ssh$ ssh ubuntu@172.31.47.192  //public ip of application
+The authenticity of host '172.31.47.192 (172.31.47.192)' can't be established.
+ECDSA key fingerprint is SHA256:jocSpYSLMv7WP3Ju7z76VB7JkLynHMwnkfj/HvMCt4k.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '172.31.47.192' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-1035-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri May 10 07:06:17 UTC 2019
+
+  System load:  0.0               Processes:           90
+  Usage of /:   25.1% of 7.69GB   Users logged in:     1
+  Memory usage: 26%               IP address for eth0: 172.31.47.192
+  Swap usage:   0%
+
+ * Ubuntu's Kubernetes 1.14 distributions can bypass Docker and use containerd
+   directly, see https://bit.ly/ubuntu-containerd or try it now with
+
+     snap install microk8s --classic
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+78 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Fri May 10 06:39:01 2019 from 114.79.180.62
+ubuntu@ip-172-31-47-192:~$ 
+ubuntu@ip-172-31-47-192:~$ exit
+logout
+Connection to 172.31.47.192 closed.
+jenkins@ip-172-31-41-156:~/.ssh$ 
+
+
+11/05/2019
+
+
+jenkins@ip-172-31-41-156:~/.ssh$ cd ..
+jenkins@ip-172-31-41-156:~$ pwd
+/var/lib/jenkins
+jenkins@ip-172-31-41-156:~$ cd workspace
+jenkins@ip-172-31-41-156:~/workspace$ ls
+login  springmvc
+jenkins@ip-172-31-41-156:~/workspace$ cd login
+jenkins@ip-172-31-41-156:~/workspace/login$ ls
+WebContent  bin  pom.xml  src  target
+jenkins@ip-172-31-41-156:~/workspace/login$ cd target
+jenkins@ip-172-31-41-156:~/workspace/login/target$ ls
+SpringMvcUser-0.1      classes		  maven-archiver
+SpringMvcUser-0.1.war  generated-sources  maven-status
+jenkins@ip-172-31-41-156:~/workspace/login/target$ packet_write_wait: Connection to 18.220.252.99 port 22: Broken pipe
+
+
+
+
+
+
+
+
+
+
+
+
+
